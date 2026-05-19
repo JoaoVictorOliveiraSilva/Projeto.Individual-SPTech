@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0a0a1a;
+  color: #d0d0e8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+.header {
+  background: #0d0d2b;
+  border-bottom: 3px solid #1a1a4a;
+  padding: 24px 24px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  color: #ffe600;
+  text-shadow: 3px 3px 0 #7a6a00;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  border-top: 1.5px solid #1e1e5a;
+  padding-top: 12px;
+  justify-content: center;
+}
+
+.navbar li a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1.5px solid #2a2a6a;
+  background: #0d0d35;
+  display: inline-block;
+  transition: all 0.1s;
+}
+
+.navbar li a:hover,
+.navbar li.agora a {
+  background: #ffe600;
+  color: #0a0a1a;
+  border-color: #ffe600;
+}
+
+/* ── LOGIN AREA ── */
+.login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #7ec8e3;
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 2px;
+}
+
+.login-titulo::before { content: '► '; color: #ff6b6b; }
+.login-titulo::after  { content: ' ◄'; color: #ff6b6b; }
+
+/* Card */
+.card-login {
+  width: 100%;
+  max-width: 600px;
+  background: #080820;
+  border: 2px solid #1e3a8a;
+  position: relative;
+  padding: 48px 48px 40px;
+}
+
+.card-login::before {
+  content: 'LOGIN';
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #4a90d9;
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #080820;
+  padding: 0 6px;
+}
+
+.card-login h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #4ade80;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Formulário */
+.formulario { display: flex; flex-direction: column; gap: 16px; }
+
+.campo { display: flex; flex-direction: column; gap: 6px; }
+
+.campo span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ffe600;
+}
+
+.campo input {
+  background: #0d0d35;
+  border: 1.5px solid #2a2a6a;
+  color: #d0d0e8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.1s;
+}
+
+.campo input::placeholder { color: #3a3a6a; }
+.campo input:focus { border-color: #7ec8e3; }
+
+/* Botão */
+.botao {
+  margin-top: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  background: #ffe600;
+  color: #0a0a1a;
+  border: none;
+  padding: 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.1s;
+  letter-spacing: 1px;
+}
+
+.botao:hover {
+  background: #ffed4a;
+  transform: translateY(-1px);
+}
+
+.botao:active { transform: translateY(0); }
+
+/* Loading */
+.loading-div {
+  display: none;
+  text-align: center;
+  padding: 16px 0 0;
+}
+
+.loading-div img { width: 32px; height: 32px; }
+
+/* Alerta de erro */
+.alerta_erro {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 12px;
+}
+
+.card_erro {
+  display: none;
+  background: #1a0a0a;
+  border: 1.5px solid #ff6b6b;
+  padding: 12px 16px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ff6b6b;
+  position: relative;
+}
+
+.card_erro::before {
+  content: 'ERRO';
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: #1a0a0a;
+  padding: 0 6px;
+  font-size: 6px;
+}
+
+#div_erros_login {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ff6b6b;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #040412;
+  border-top: 2px solid #1a1a4a;
+  padding: 14px 24px;
+  text-align: center;
+}
+
+.footer h4 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #3a3a6a;
+  font-weight: normal;
+}
+
+.footer .version {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #2a2a5a;
+  display: block;
+  margin-top: 4px;
+}

@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
+
+/* =============================================
+   RESET & BASE
+============================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0a1a;
+  color: #d0d0e8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/*
+   HEADER
+*/
+.header {
+  background: #0d0d2b;
+  border-bottom: 3px solid #1a1a4a;
+  padding: 24px 24px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 8px;
+  text-align: center;
+}
+
+/* =============================================
+   TÍTULO PRINCIPAL
+============================================= */
+.titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  color: #ffe600;
+  text-shadow: 3px 3px 0 #7a6a00;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+/* =============================================
+   NAVBAR
+============================================= */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  border-top: 1.5px solid #1e1e5a;
+  padding-top: 12px;
+  justify-content: center;
+}
+
+.navbar li a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1.5px solid #2a2a6a;
+  background: #0d0d35;
+  display: inline-block;
+  transition: all 0.1s;
+}
+
+.navbar li a:hover,
+.navbar li.agora a {
+  background: #ffe600;
+  color: #0a0a1a;
+  border-color: #ffe600;
+}
+
+/* =============================================
+   SEÇÃO DE CADASTRO
+============================================= */
+.login {
+  max-width: 780px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+}
+
+/* Título da seção ► CADASTRO ◄ */
+.login > .container2-titulo,
+.login-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ffe600;
+  text-align: center;
+  border-top: 2px solid #2a2a5a;
+  border-bottom: 2px solid #2a2a5a;
+  padding: 12px;
+  margin-bottom: 28px;
+}
+
+.login-titulo::before { content: '► '; color: #ff6b6b; }
+.login-titulo::after  { content: ' ◄'; color: #ff6b6b; }
+
+/* =============================================
+   ALERTA / MENSAGEM DE ERRO
+============================================= */
+.alerta_erro {
+  min-height: 28px;
+  margin-bottom: 16px;
+}
+
+.card_erro {
+  display: none;
+  background: #1a0a0a;
+  border: 1.5px solid #ff4444;
+  padding: 8px 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ff6b6b;
+  line-height: 1.8;
+}
+
+.card_erro.sucesso {
+  border-color: #4ade80;
+  color: #4ade80;
+  background: #0a1a0a;
+}
+
+/* =============================================
+   CARD DE CADASTRO
+============================================= */
+.card {
+  border: 2px solid #1e3a8a;
+  background: #080820;
+  position: relative;
+  padding: 32px 28px 28px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.card-cadastro::before {
+  content: 'NOVO JOGADOR';
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #4a90d9;
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #080820;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+}
+.card-cadastro h2{
+    
+font-family: 'Press Start 2P', monospace;
+font-size: 30px;
+color: yellow;
+display: flex;
+justify-content: center;
+
+}
+
+
+/* =============================================
+   FORMULÁRIO
+============================================= */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+}
+
+.campo input {
+  width: 100%;
+  background: #0d0d35;
+  border: 1.5px solid #2a2a6a;
+  color: #d0d0e8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.campo input::placeholder {
+  color: #3a3a6a;
+}
+
+.campo input:focus {
+  border-color: #ffe600;
+  background: #10103a;
+}
+
+/* =============================================
+   BOTÃO
+============================================= */
+.botao {
+  width: 100%;
+  background: #ffe600;
+  color: #0a0a1a;
+  border: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  padding: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.botao::before { content: '► '; }
+.botao::after  { content: ' ◄'; }
+
+.botao:hover {
+  background: #fff176;
+  transform: translateY(-1px);
+}
+
+.botao:active {
+  transform: translateY(1px);
+}
+
+/* =============================================
+   LOADING
+============================================= */
+.loading-div {
+  display: none;
+  text-align: center;
+  padding: 12px;
+}
+
+.loading-div span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #4ade80;
+  animation: piscar 0.8s step-start infinite;
+}
+
+@keyframes piscar {
+  50% { opacity: 0; }
+}
+
+/* =============================================
+   LINK LOGIN
+============================================= */
+.link-login {
+  text-align: center;
+  margin-top: 18px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #3a3a6a;
+}
+
+.link-login a {
+  color: #7ec8e3;
+  text-decoration: none;
+}
+
+.link-login a:hover {
+  color: #ffe600;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+.footer {
+  display: block;
+  background: #040412;
+  border-top: 2px solid #1a1a4a;
+  padding: 14px 24px;
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #3a3a6a;
+}

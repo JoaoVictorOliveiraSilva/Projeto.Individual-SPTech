@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
+
+/* =============================================
+   BASE
+============================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.dash-wrap {
+  background: #0a0a1a;
+  color: #d0d0e8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  padding: 0 0 32px;
+}
+
+
+/* =============================================
+   HEADER
+============================================= */
+.dash-header {
+  background: #0d0d2b;
+  border-bottom: 3px solid #1a1a4a;
+  padding: 20px 24px 14px;
+  text-align: center;
+}
+
+.dash-title-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ffe600;
+  text-shadow: 2px 2px 0 #7a6a00;
+  line-height: 2;
+  margin-bottom: 6px;
+}
+
+.dash-sub {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+}
+
+
+
+/* =============================================
+   BODY
+============================================= */
+.dash-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* =============================================
+   TÍTULO DE SEÇÃO
+============================================= */
+.dash-section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #ffe600;
+  text-shadow: 2px 2px 0 #7a6a00;
+  text-align: center;
+  border-top: 2px solid #2a2a5a;
+  border-bottom: 2px solid #2a2a5a;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.dash-section-title::before { content: '► '; color: #ff6b6b; }
+.dash-section-title::after  { content: ' ◄'; color: #ff6b6b; }
+
+/* =============================================
+   CARDS DE PONTUAÇÃO
+============================================= */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dash-card {
+  background: #0d0d35;
+  border: 1.5px solid #2a2a6a;
+  padding: 16px;
+  text-align: center;
+}
+
+.dash-card-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #7ec8e3;
+  margin-bottom: 10px;
+  display: block;
+  line-height: 1.8;
+}
+
+.dash-card-value {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 22px;
+}
+
+/* =============================================
+   BARRAS DE PERFIL
+============================================= */
+.bar-section {
+  border: 2px solid #1e3a8a;
+  background: #080820;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bar-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #4a90d9;
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background: #080820;
+  padding: 0 6px;
+}
+
+.bar-row { margin-bottom: 14px; }
+
+.bar-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #d0d0e8;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-track { background: #1a1a3a; height: 14px; border: 1px solid #2a2a5a; }
+.bar-fill-ps2 { height: 100%; background: #3b82f6; transition: width 1s ease; }
+.bar-fill-ps3 { height: 100%; background: #4ade80; transition: width 1s ease; }
+
+/* =============================================
+   RESUMO DE RESPOSTAS
+============================================= */
+.answer-item-q {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #7ec8e3;
+  margin-bottom: 4px;
+  line-height: 1.8;
+}
+
+.answer-item-r {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #ffe600;
+  line-height: 1.8;
+}
+
+/* =============================================
+   RECOMENDAÇÃO
+============================================= */
+.recommendation-box {
+  border: 2px solid;
+  padding: 24px;
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.rec-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  padding: 0 6px;
+}
+
+.rec-ps2 { border-color: #3b82f6; }
+.rec-ps2 .rec-tag { color: #3b82f6; background: #080820; }
+.rec-ps3 { border-color: #4ade80; }
+.rec-ps3 .rec-tag { color: #4ade80; background: #080820; }
+
+.rec-console-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.rec-ps2 .rec-console-name { color: #3b82f6; }
+.rec-ps3 .rec-console-name { color: #4ade80; }
+
+.rec-desc {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+  line-height: 2.2;
+  margin-bottom: 20px;
+}
+
+.rec-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  display: inline-block;
+  padding: 10px 18px;
+}
+
+.rec-ps2 .rec-badge { background: #3b82f6; color: #0a0a1a; }
+.rec-ps3 .rec-badge { background: #4ade80; color: #0a0a1a; }
+
+/* =============================================
+   BOTÃO REFAZER
+============================================= */
+.btn-refazer {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  background: transparent;
+  color: #ffe600;
+  border: 1.5px solid #ffe600;
+  padding: 12px 24px;
+  cursor: pointer;
+  display: block;
+  margin: 24px auto 0;
+  transition: all 0.1s;
+}
+
+.btn-refazer:hover { background: #ffe600; color: #0a0a1a; }

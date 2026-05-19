@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - PS2 vs PS3</title>
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="icon" href="imagens/fav-icon jogo.jpg" />
+</head>
+
+<body>
+
+    <div class="quiz-wrap">
+        <div class="quiz-header">
+            <div class="quiz-title">QUAL CONSOLE É O SEU?</div>
+            <div class="quiz-sub">PS2 vs PS3 · descubra o seu perfil</div>
+        </div>
+
+        <div class="quiz-body">
+
+            <!-- TELA INICIAL -->
+            <div class="screen active" id="screen-welcome">
+                <div class="welcome-box">
+                    <div class="welcome-greeting">BEM-VINDO,<br>PLAYER!</div>
+                    <div class="welcome-desc">
+                        Responda 8 perguntas sobre seus<br>
+                        hábitos e preferências de jogo.<br>
+                        Não há resposta certa ou errada<br>
+                        — apenas o seu estilo!
+                    </div>
+                    <div class="welcome-highlight">
+                        Descubra se o <span style="color:#3b82f6">PlayStation 2</span><br>
+                        ou o <span style="color:#4ade80">PlayStation 3</span><br>
+                        combina mais com você.
+                    </div>
+                </div>
+                <button class="btn-iniciar" onclick="iniciar()">▶ INICIAR QUIZ</button>
+            </div>
+
+            <!-- TELA DO QUIZ -->
+            <div class="screen" id="screen-quiz">
+                <div class="progress-label">
+                    <span id="prog-label">Questão 1 de 8</span>
+                    <span id="prog-pct">0%</span>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" id="prog-fill" style="width:0%"></div>
+                </div>
+                <div class="question-box">
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-list" id="options-list"></div>
+                </div>
+                <button class="btn-avancar" id="btn-avancar" onclick="avancar()" disabled>PRÓXIMA ►</button>
+            </div>
+
+            <!-- TELA DE CONCLUSÃO -->
+            <div class="screen" id="screen-finish">
+                <div class="finish-box">
+                    <div class="finish-title">QUIZ CONCLUÍDO!</div>
+                    <div class="finish-msg">
+                        Você respondeu todas as questões.<br>
+                        Clique abaixo para ver<br>
+                        o seu resultado completo!
+                    </div>
+                    <button class="btn-ver-resultado" onclick="irParaDashboard()">► VER RESULTADO ◄</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const perguntas = [
+            {
+                texto: "Como você prefere jogar?", opcoes: [
+                    { texto: "Sozinho, mergulhado numa boa história", ps2: 2, ps3: 1 },
+                    { texto: "Com os amigos no mesmo sofá", ps2: 2, ps3: 1 },
+                    { texto: "Online, com pessoas do mundo todo", ps2: 0, ps3: 2 },
+                    { texto: "Do meu jeito, sem seguir regras", ps2: 1, ps3: 1 }
+                ]
+            },
+            {
+                texto: "O que mais te atrai num jogo?", opcoes: [
+                    { texto: "Gráficos incríveis e realistas", ps2: 0, ps3: 2 },
+                    { texto: "Uma história que me prende do início ao fim", ps2: 2, ps3: 1 },
+                    { texto: "Jogabilidade simples e divertida", ps2: 2, ps3: 0 },
+                    { texto: "Mundo aberto pra explorar à vontade", ps2: 1, ps3: 2 }
+                ]
+            },
+            {
+                texto: "Qual sensação você busca nos games?", opcoes: [
+                    { texto: "Nostalgia e memórias afetivas", ps2: 2, ps3: 0 },
+                    { texto: "Adrenalina e competição", ps2: 1, ps3: 2 },
+                    { texto: "Relaxamento e diversão leve", ps2: 2, ps3: 1 },
+                    { texto: "Desafio e superação", ps2: 1, ps3: 2 }
+                ]
+            },
+            {
+                texto: "Quanto tempo você joga por sessão?", opcoes: [
+                    { texto: "30 minutos a 1 hora", ps2: 2, ps3: 0 },
+                    { texto: "1 a 3 horas", ps2: 2, ps3: 1 },
+                    { texto: "3 a 6 horas", ps2: 1, ps3: 2 },
+                    { texto: "O dia todo quando posso!", ps2: 0, ps3: 2 }
+                ]
+            },
+            {
+                texto: "Qual estilo de jogo combina com você?", opcoes: [
+                    { texto: "Aventura e ação", ps2: 2, ps3: 2 },
+                    { texto: "Esporte e corrida", ps2: 1, ps3: 2 },
+                    { texto: "RPG e estratégia", ps2: 2, ps3: 1 },
+                    { texto: "Tiro em primeira pessoa (FPS)", ps2: 0, ps3: 2 }
+                ]
+            },
+            {
+                texto: "O que você acha sobre tecnologia?", opcoes: [
+                    { texto: "Prefiro o clássico, o simples funciona bem", ps2: 2, ps3: 0 },
+                    { texto: "Gosto de novidades mas sem exagero", ps2: 1, ps3: 1 },
+                    { texto: "Quanto mais moderno, melhor!", ps2: 0, ps3: 2 },
+                    { texto: "Só me importa se funciona bem", ps2: 1, ps3: 1 }
+                ]
+            },
+            {
+                texto: "Como você lida com troféus e conquistas?", opcoes: [
+                    { texto: "Nem ligo, só quero me divertir", ps2: 2, ps3: 0 },
+                    { texto: "Coleciono todos que posso!", ps2: 0, ps3: 2 },
+                    { texto: "Pego alguns, sem obrigação", ps2: 1, ps3: 1 },
+                    { texto: "Não sabia que existia isso", ps2: 2, ps3: 0 }
+                ]
+            },
+            {
+                texto: "Qual frase mais combina com você?", opcoes: [
+                    { texto: "Menos é mais — o básico bem feito já basta", ps2: 2, ps3: 0 },
+                    { texto: "Quero tudo: online, gráficos, troféus", ps2: 0, ps3: 2 },
+                    { texto: "O que importa é a experiência, não a tecnologia", ps2: 2, ps3: 1 },
+                    { texto: "Gosto de sentir que o jogo evoluiu junto comigo", ps2: 0, ps3: 2 }
+                ]
+            }
+        ]
+
+        let atual = 0, pontos_ps2 = 0, pontos_ps3 = 0, respostas = [], selecionado = null
+
+        function show(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'))
+            document.getElementById(id).classList.add('active')
+        }
+
+        function iniciar() { show('screen-quiz'); carregarQuestao() }
+
+        function carregarQuestao() {
+            const q = perguntas[atual]
+            const total = perguntas.length
+            const pct = Math.round((atual / total) * 100)
+            document.getElementById('prog-label').textContent = `Questão ${atual + 1} de ${total}`
+            document.getElementById('prog-pct').textContent = pct + '%'
+            document.getElementById('prog-fill').style.width = pct + '%'
+            document.getElementById('question-text').textContent = q.texto
+
+            const lista = document.getElementById('options-list')
+            lista.innerHTML = ''
+            selecionado = null
+            document.getElementById('btn-avancar').disabled = true
+
+            const letras = ['A', 'B', 'C', 'D']
+            q.opcoes.forEach((op, i) => {
+                const btn = document.createElement('button')
+                btn.className = 'option-btn'
+                btn.innerHTML = `<span class="option-letter">${letras[i]}</span>${op.texto}`
+                btn.onclick = () => selecionar(i, btn)
+                lista.appendChild(btn)
+            })
+
+            document.getElementById('btn-avancar').textContent = atual === perguntas.length - 1 ? 'CONCLUIR ►' : 'PRÓXIMA ►'
+        }
+
+        function selecionar(index, btnEl) {
+            selecionado = index
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'))
+            btnEl.classList.add('selected')
+            document.getElementById('btn-avancar').disabled = false
+        }
+
+        function avancar() {
+            if (selecionado === null) return
+            const q = perguntas[atual]
+            const op = q.opcoes[selecionado]
+            pontos_ps2 += op.ps2
+            pontos_ps3 += op.ps3
+            respostas.push({ pergunta: q.texto, resposta: op.texto })
+            atual++
+            if (atual < perguntas.length) carregarQuestao()
+            else show('screen-finish')
+        }
+
+        // =============================================
+
+
+        function irParaDashboard() {
+
+            var fkUsuario = sessionStorage.ID_USUARIO;
+
+            var recomendado = pontos_ps2 >= pontos_ps3
+                ? 'ps2'
+                : 'ps3';
+
+            fetch("/quiz/salvar", {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    fkUsuario: fkUsuario,
+
+                    pontosps2: pontos_ps2,
+                    pontosps3: pontos_ps3,
+
+                    recomendado: recomendado,
+
+                    respostas: respostas
+                })
+            })
+
+                .then(function (resposta) {
+
+                    console.log("STATUS:", resposta.status);
+
+                    if (resposta.ok) {
+
+                        sessionStorage.setItem("pontos_ps2", pontos_ps2);
+                        sessionStorage.setItem("pontos_ps3", pontos_ps3);
+                        sessionStorage.setItem("respostas", JSON.stringify(respostas));
+
+                        window.location = "dashboard.html";
+
+                    } else {
+
+                        resposta.text().then(function (texto) {
+
+                            console.log("ERRO:", texto);
+
+                        });
+
+                        alert("Erro ao salvar quiz");
+                    }
+                })
+
+                .catch(function (erro) {
+
+                    console.log("ERRO FETCH:", erro);
+
+                });
+        }
+
+
+    </script>
+
+</body>
+
+</html>
