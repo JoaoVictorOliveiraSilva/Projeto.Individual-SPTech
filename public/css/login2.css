@@ -146,7 +146,6 @@ body {
 
 /* Etiqueta "LOGIN" no canto superior do card */
 .card-login::before {
-  content: 'LOGIN';
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #4a90d9;

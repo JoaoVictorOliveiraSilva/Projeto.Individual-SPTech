@@ -61,7 +61,6 @@
 }
 
 .welcome-box::before {
-  content: 'MSG';
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #4a90d9;
@@ -147,7 +146,6 @@
 }
 
 .question-box::before {
-  content: 'QUESTÃO';
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #4a90d9;
@@ -231,7 +229,6 @@
 }
 
 .finish-box::before {
-  content: 'FIM DO QUIZ';
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #4a90d9;

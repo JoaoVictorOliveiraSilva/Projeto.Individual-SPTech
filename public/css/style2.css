@@ -124,7 +124,6 @@ body {
 
 /* Etiqueta "MSG" que aparece no canto superior da caixa */
 .caixa-boas-vindas::before {
-  content: 'MSG';
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #4a90d9;
