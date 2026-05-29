@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
 
-/* =============================================
-   BASE
-============================================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.dash-wrap {
+.pagina-dashboard {
   background: #0a0a1a;
   color: #d0d0e8;
   font-family: 'Rajdhani', sans-serif;
@@ -14,18 +11,14 @@
   padding: 0 0 32px;
 }
 
-
-/* =============================================
-   HEADER
-============================================= */
-.dash-header {
+.cabecalho-dashboard {
   background: #0d0d2b;
   border-bottom: 3px solid #1a1a4a;
   padding: 20px 24px 14px;
   text-align: center;
 }
 
-.dash-title-header {
+.titulo-dashboard {
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   color: #ffe600;
@@ -34,27 +27,33 @@
   margin-bottom: 6px;
 }
 
-.dash-sub {
+.subtitulo-dashboard {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
+  margin-bottom: 8px;
 }
 
+/* Link Home no cabeçalho */
+.cabecalho-dashboard a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #a07ee3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.1s;
+}
+.cabecalho-dashboard a:hover {
+  color: #c8a8ff;
+}
 
-
-/* =============================================
-   BODY
-============================================= */
-.dash-body {
+.corpo-dashboard {
   max-width: 680px;
   margin: 0 auto;
   padding: 24px 20px;
 }
 
-/* =============================================
-   TÍTULO DE SEÇÃO
-============================================= */
-.dash-section-title {
+.titulo-de-secao {
   font-family: 'Press Start 2P', monospace;
   font-size: 9px;
   color: #ffe600;
@@ -66,27 +65,24 @@
   margin-bottom: 20px;
 }
 
-.dash-section-title::before { content: '► '; color: #ff6b6b; }
-.dash-section-title::after  { content: ' ◄'; color: #ff6b6b; }
+.titulo-de-secao::before { content: '► '; color: #ff6b6b; }
+.titulo-de-secao::after  { content: ' ◄'; color: #ff6b6b; }
 
-/* =============================================
-   CARDS DE PONTUAÇÃO
-============================================= */
-.dash-grid {
+.grade-cards-pontuacao {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.dash-card {
+.card-pontuacao {
   background: #0d0d35;
   border: 1.5px solid #2a2a6a;
   padding: 16px;
   text-align: center;
 }
 
-.dash-card-label {
+.rotulo-card {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #7ec8e3;
@@ -95,36 +91,41 @@
   line-height: 1.8;
 }
 
-.dash-card-value {
+.valor-card {
   font-family: 'Press Start 2P', monospace;
   font-size: 22px;
 }
 
-/* =============================================
-   BARRAS DE PERFIL
-============================================= */
-.bar-section {
+/* 
+  SEÇÃO BARRAS: borda sem o azul "fantasma" no topo.
+  Usamos padding-top maior para a etiqueta flutuar
+  sem colidir com a borda superior.
+*/
+.secao-barras-perfil {
   border: 2px solid #1e3a8a;
   background: #080820;
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
+  /* padding extra no topo para a etiqueta não sobrepor a borda */
+  padding-top: 24px;
 }
 
-.bar-tag {
+.etiqueta-barra {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #4a90d9;
   position: absolute;
   top: -9px;
   left: 12px;
+  /* fundo igual ao da seção, para "cortar" a borda */
   background: #080820;
   padding: 0 6px;
 }
 
-.bar-row { margin-bottom: 14px; }
+.linha-barra { margin-bottom: 14px; }
 
-.bar-label {
+.rotulo-barra {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #d0d0e8;
@@ -133,39 +134,48 @@
   justify-content: space-between;
 }
 
-.bar-track { background: #1a1a3a; height: 14px; border: 1px solid #2a2a5a; }
-.bar-fill-ps2 { height: 100%; background: #3b82f6; transition: width 1s ease; }
-.bar-fill-ps3 { height: 100%; background: #4ade80; transition: width 1s ease; }
+.trilho-barra { background: #1a1a3a; height: 14px; border: 1px solid #2a2a5a; }
 
-/* =============================================
-   RESUMO DE RESPOSTAS
-============================================= */
+.preenchimento-barra-ps2 { height: 100%; background: #3b82f6; transition: width 1s ease; }
+.preenchimento-barra-ps3 { height: 100%; background: #4ade80; transition: width 1s ease; }
+
+/* ======= RESUMO DE RESPOSTAS (classes geradas pelo JS) ======= */
+
+/* Pergunta: "Q1: Como você prefere jogar?" */
 .answer-item-q {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #7ec8e3;
-  margin-bottom: 4px;
-  line-height: 1.8;
+  margin-bottom: 6px;
+  line-height: 1.9;
 }
 
+/* Resposta escolhida: "▸ Com os amigos no mesmo sofá" */
 .answer-item-r {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #ffe600;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
-/* =============================================
-   RECOMENDAÇÃO
-============================================= */
+/* Divisor entre cada par pergunta/resposta */
+#answers-summary > div:not(:last-child) {
+  border-bottom: 1px solid #1a1a4a;
+  padding-bottom: 12px;
+}
+
+/* ======= CAIXA DE RECOMENDAÇÃO (classes geradas pelo JS) ======= */
+
 .recommendation-box {
   border: 2px solid;
-  padding: 24px;
+  padding: 28px 24px 24px;
   margin-top: 20px;
   text-align: center;
   position: relative;
+  background: #080820;
 }
 
+/* Etiqueta "RECOMENDAÇÃO" no topo da caixa */
 .rec-tag {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
@@ -173,31 +183,28 @@
   top: -9px;
   left: 12px;
   padding: 0 6px;
+  background: #080820;
 }
 
-.rec-ps2 { border-color: #3b82f6; }
-.rec-ps2 .rec-tag { color: #3b82f6; background: #080820; }
-.rec-ps3 { border-color: #4ade80; }
-.rec-ps3 .rec-tag { color: #4ade80; background: #080820; }
-
+/* Nome do console: "PLAYSTATION 2" / "PLAYSTATION 3" */
 .rec-console-name {
   font-family: 'Press Start 2P', monospace;
-  font-size: 18px;
-  margin-bottom: 16px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  margin-top: 6px;
 }
 
-.rec-ps2 .rec-console-name { color: #3b82f6; }
-.rec-ps3 .rec-console-name { color: #4ade80; }
-
+/* Texto descritivo */
 .rec-desc {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
-  line-height: 2.2;
-  margin-bottom: 20px;
+  line-height: 2.3;
+  margin-bottom: 22px;
 }
 
+/* Selo final: "► SEU CONSOLE É O PS2 ◄" */
 .rec-badge {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
@@ -205,13 +212,50 @@
   padding: 10px 18px;
 }
 
+/* Variação PS2 — azul */
+.rec-ps2 { border-color: #3b82f6; }
+.rec-ps2 .rec-tag   { color: #3b82f6; }
+.rec-ps2 .rec-console-name { color: #3b82f6; }
 .rec-ps2 .rec-badge { background: #3b82f6; color: #0a0a1a; }
+
+/* Variação PS3 — verde */
+.rec-ps3 { border-color: #4ade80; }
+.rec-ps3 .rec-tag   { color: #4ade80; }
+.rec-ps3 .rec-console-name { color: #4ade80; }
 .rec-ps3 .rec-badge { background: #4ade80; color: #0a0a1a; }
 
-/* =============================================
-   BOTÃO REFAZER
-============================================= */
-.btn-refazer {
+/* ======= MENU DE NAVEGAÇÃO ======= */
+.menu-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  border-top: 1.5px solid #1e1e5a;
+  padding-top: 12px;
+  justify-content: center;
+}
+
+.menu-navegacao li a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #7ec8e3;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1.5px solid #2a2a6a;
+  background: #0d0d35;
+  display: inline-block;
+  transition: all 0.1s;
+}
+
+.menu-navegacao li a:hover,
+.menu-navegacao li.pagina-atual a {
+  background: #ffe600;
+  color: #0a0a1a;
+  border-color: #ffe600;
+}
+
+/* Botão refazer */
+.botao-refazer-quiz {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
   background: transparent;
@@ -224,4 +268,4 @@
   transition: all 0.1s;
 }
 
-.btn-refazer:hover { background: #ffe600; color: #0a0a1a; }
+.botao-refazer-quiz:hover { background: #ffe600; color: #0a0a1a; }

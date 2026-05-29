@@ -2,82 +2,98 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Minha Trajetória | Login</title>
+  <title>Minha Trajetória | Login</title>
 
-    <script src="./js/sessao.js"></script>
+  <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="./css/login2.css">
-    <link rel="icon" href="imagens/fav-icon jogo.jpg" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="./css/login2.css">
+  <link rel="icon" href="imagens/fav-icon jogo.jpg" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
 
-    <!--Header-->
+  <!-- CABEÇALHO DO SITE (topo da página)  -->
+  <div class="cabecalho-site">
+    <div class="centralizador-conteudo">
+      <h1 class="titulo-principal">Minha Trajetória</h1>
+      <ul class="menu-navegacao">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li></li>
+        <li>|</li>
+        <li>
+          <a href="cadastro.html">Cadastre-se</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- FIM DO CABEÇALHO  -->
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">Minha Trajetória</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                </li>
-                <li>|</li>
-                <li>
-                    <a href="cadastro.html">Cadastre-se</a>
-                </li>
-            </ul>
-        </div>
+
+  <!--  ÁREA DE LOGIN (centro da página) -->
+  <div class="area-login">
+
+    <!-- Espaço reservado para exibir mensagens de erro -->
+    <div class="espaco-alerta-erro">
+      <div class="caixa-mensagem-erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
     </div>
 
+    <div class="centralizador-conteudo">
 
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
+      <!-- Card com o formulário de login -->
+      <div class="card-login">
+        <h2>Olá de volta!</h2>
+
+        <!-- Formulário com os campos de entrada -->
+        <div class="formulario-campos">
+
+          <div class="campo-formulario">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" placeholder="Login">
+          </div>
+
+          <div class="campo-formulario">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" placeholder="******">
+          </div>
+
+          <!-- Botão que chama a função de login no JavaScript -->
+          <button class="botao-entrar" onclick="entrar()">Entrar</button>
+
+        </div><!-- fim formulario-campos -->
+
+        <!-- Animação de carregando (aparece enquanto processa o login) -->
+        <div id="div_aguardar" class="area-carregando">
+          <img src="./assets/circle-loading.gif" id="loading-gif">
         </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
 
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
+        <div id="div_erros_login"></div>
 
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
+      </div><!-- fim card-login -->
+
+    </div><!-- fim centralizador-conteudo -->
+
+  </div><!-- fim area-login -->
+
+
+  <!--  RODAPÉ DO SITE  -->
+  <div class="rodape-site">
+    <div class="centralizador-conteudo">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+      <span class="versao-site">v1.0.0</span>
     </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
+  </div>
+  <!--  FIM DO RODAPÉ  -->
 
 </body>
-
 </html>
 
 <script>

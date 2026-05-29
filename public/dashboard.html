@@ -2,75 +2,100 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado - PS2 vs PS3</title>
-    <link rel="stylesheet" href="css/dashoboard1.css">
-    <link rel="icon" href="imagens/fav-icon jogo.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado - PS2 vs PS3</title>
+  <link rel="stylesheet" href="css/dashoboard1.css">
+  <link rel="icon" href="imagens/fav-icon jogo.jpg" />
 </head>
 
 <body>
-    
-    <div class="dash-wrap">
-        <div class="dash-header">
-            <div class="dash-title-header">QUAL CONSOLE É O SEU?</div>
-            <div class="dash-sub">PS2 vs PS3 · seu resultado</div>
-            <a href="index.html">Home</a>
-        </div>
 
-        <div class="dash-body">
+  <!-- ======= PÁGINA INTEIRA DO DASHBOARD ======= -->
+  <div class="pagina-dashboard">
 
-            <div class="dash-section-title">SEUS RESULTADOS</div>
-
-            <div class="dash-grid">
-                <div class="dash-card">
-                    <span class="dash-card-label">PONTOS PS2</span>
-                    <div class="dash-card-value" id="pontos_-ps2" style="color:#3b82f6">0</div>
-                </div>
-                <div class="dash-card">
-                    <span class="dash-card-label">PONTOS PS3</span>
-                    <div class="dash-card-value" id="pontos_-ps3" style="color:#4ade80">0</div>
-                </div>
-            </div>
-
-            <div class="bar-section">
-                <span class="bar-tag">PERFIL</span>
-                <div class="bar-row">
-                    <div class="bar-label">
-                        <span style="color:#3b82f6">PS2</span>
-                        <span id="pct-ps2-label">0%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill-ps2" id="bar-ps2" style="width:0%"></div>
-                    </div>
-                </div>
-                <div class="bar-row" style="margin-bottom:0">
-                    <div class="bar-label">
-                        <span style="color:#4ade80">PS3</span>
-                        <span id="pct-ps3-label">0%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill-ps3" id="bar-ps3" style="width:0%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bar-section" style="margin-bottom:20px;">
-                <span class="bar-tag">SUAS RESPOSTAS</span>
-                <div id="answers-summary" style="display:flex;flex-direction:column;gap:12px;margin-top:4px;"></div>
-            </div>
-
-            <div id="recommendation-box"></div>
-
-            <button class="btn-refazer" onclick="window.location.href='quiz.html'">↺ REFAZER QUIZ</button>
-
-        </div>
+    <!-- ======= CABEÇALHO DO DASHBOARD ======= -->
+    <div class="cabecalho-dashboard">
+      <div class="titulo-dashboard">QUAL CONSOLE É O SEU?</div>
+      <div class="subtitulo-dashboard">PS2 vs PS3 · seu resultado</div>
+      <a href="index.html">Home</a>
     </div>
+    <!-- ======= FIM DO CABEÇALHO ======= -->
+
+
+    <!-- ======= CORPO DO DASHBOARD (conteúdo central) ======= -->
+    <div class="corpo-dashboard">
+
+      <!-- Título da seção de resultados -->
+      <div class="titulo-de-secao">SEUS RESULTADOS</div>
+
+      <!-- Grade com os cards de pontuação (PS2 e PS3 lado a lado) -->
+      <div class="grade-cards-pontuacao">
+
+        <div class="card-pontuacao">
+          <span class="rotulo-card">PONTOS PS2</span>
+          <div class="valor-card" id="pontos_-ps2" style="color:#3b82f6">0</div>
+        </div>
+
+        <div class="card-pontuacao">
+          <span class="rotulo-card">PONTOS PS3</span>
+          <div class="valor-card" id="pontos_-ps3" style="color:#4ade80">0</div>
+        </div>
+
+      </div><!-- fim grade-cards-pontuacao -->
+
+
+      <!-- Seção com as barras de perfil (PS2 e PS3) -->
+      <div class="secao-barras-perfil">
+        <span class="etiqueta-barra">PERFIL</span>
+
+        <!-- Linha da barra do PS2 -->
+        <div class="linha-barra">
+          <div class="rotulo-barra">
+            <span style="color:#3b82f6">PS2</span>
+            <span id="pct-ps2-label">0%</span>
+          </div>
+          <div class="trilho-barra">
+            <div class="preenchimento-barra-ps2" id="bar-ps2" style="width:0%"></div>
+          </div>
+        </div>
+
+        <!-- Linha da barra do PS3 -->
+        <div class="linha-barra" style="margin-bottom:0">
+          <div class="rotulo-barra">
+            <span style="color:#4ade80">PS3</span>
+            <span id="pct-ps3-label">0%</span>
+          </div>
+          <div class="trilho-barra">
+            <div class="preenchimento-barra-ps3" id="bar-ps3" style="width:0%"></div>
+          </div>
+        </div>
+
+      </div><!-- fim secao-barras-perfil -->
+
+
+      <!-- Seção com o resumo das respostas do quiz -->
+      <div class="secao-barras-perfil" style="margin-bottom:20px;">
+        <span class="etiqueta-barra">SUAS RESPOSTAS</span>
+        <!-- O JavaScript preenche este div com as perguntas e respostas -->
+        <div id="answers-summary" style="display:flex;flex-direction:column;gap:12px;margin-top:4px;"></div>
+      </div>
+
+
+      <!-- Caixa de recomendação: gerada pelo JavaScript com base na pontuação -->
+      <div id="recommendation-box"></div>
+
+
+      <!-- Botão para refazer o quiz -->
+      <button class="botao-refazer-quiz" onclick="window.location.href='quiz.html'">↺ REFAZER QUIZ</button>
+
+    </div><!-- fim corpo-dashboard -->
+
+  </div><!-- fim pagina-dashboard -->
+
 
     <script>
-        // =============================================
-        // Substitua o bloco <script> do dashboard.html por esse:
-        // =============================================
+       
 
         var fkUsuario = sessionStorage.ID_USUARIO;
         fetch("/quiz/resultado/" + fkUsuario)

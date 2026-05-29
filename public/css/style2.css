@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
 
-/* =============================================
+/* 
    RESET & BASE
-============================================= */
+   Zera margens, paddings e define box-sizing
+   para todos os elementos da página
+ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,10 +19,11 @@ body {
   line-height: 1.7;
 }
 
-/* =============================================
-   HEADER
-============================================= */
-.header {
+/* 
+   CABEÇALHO DO SITE
+   Faixa escura no topo com título e menu
+ */
+.cabecalho-site {
   background: #0d0d2b;
   border-bottom: 3px solid #1a1a4a;
   padding: 24px 24px 16px;
@@ -28,8 +31,8 @@ body {
   overflow: hidden;
 }
 
-/* Efeito de scanlines (linhas de CRT) */
-.header::before {
+/* Efeito de scanlines (linhas de CRT sobre o cabeçalho) */
+.cabecalho-site::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -44,7 +47,12 @@ body {
   z-index: 1;
 }
 
-.container {
+/* 
+   CENTRALIZADOR DE CONTEÚDO
+   Limita a largura e centraliza o conteúdo
+   na tela. Usado dentro do cabeçalho.
+ */
+.centralizador-conteudo {
   position: relative;
   z-index: 2;
   max-width: 780px;
@@ -53,10 +61,11 @@ body {
   text-align: center;
 }
 
-/* =============================================
+/* 
    TÍTULO PRINCIPAL
-============================================= */
-.titulo {
+   Texto grande com fonte pixelada no cabeçalho
+ */
+.titulo-principal {
   font-family: 'Press Start 2P', monospace;
   font-size: 13px;
   color: #ffe600;
@@ -65,10 +74,11 @@ body {
   margin-bottom: 18px;
 }
 
-/* =============================================
-   NAVBAR
-============================================= */
-.navbar {
+/*
+   MENU DE NAVEGAÇÃO
+   Lista de links no topo do site (Home, Login...)
+*/
+.menu-navegacao {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -78,7 +88,7 @@ body {
   justify-content: center;
 }
 
-.navbar li a {
+.menu-navegacao li a {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
@@ -88,54 +98,32 @@ body {
   background: #0d0d35;
   display: inline-block;
   transition: all 0.1s;
-  
 }
 
-.navbar li a:hover,
-.navbar li.agora a {
+/* Link ativo (página atual) ou ao passar o mouse */
+.menu-navegacao li a:hover,
+.menu-navegacao li.pagina-atual a {
   background: #ffe600;
   color: #0a0a1a;
   border-color: #ffe600;
 }
 
-/* =============================================
-   ÁREA DE CONTEÚDO PRINCIPAL
-============================================= */
-.container2,
-main > .container {
+/* 
+   CAIXA DE BOAS-VINDAS
+   Bloco com mensagem de boas-vindas ao visitante.
+   Tem borda azul e fundo escuro.
+ */
+.caixa-boas-vindas {
   max-width: 780px;
-  margin: 0 auto;
+  margin: 28px auto 0;
   padding: 28px 24px;
-}
-
-main > .container p {
-  color: #c0c0da;
-  margin-bottom: 10px;
-}
-
-main > .container span {
-  color: #ffe600;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 11px;
-}
-
-main > .container h2 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 9px;
-  color: #4ade80;
-  margin-top: 10px;
-}
-
-/* Caixa de boas-vindas com borda decorativa */
-main > .container {
   border: 2px solid #1e3a8a;
   background: #080820;
   position: relative;
-  margin-top: 28px;
-  margin-bottom: 0;
 }
 
-main > .container::before {
+/* Etiqueta "MSG" que aparece no canto superior da caixa */
+.caixa-boas-vindas::before {
   content: 'MSG';
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
@@ -147,57 +135,70 @@ main > .container::before {
   padding: 0 6px;
 }
 
-/* =============================================
-   TÍTULO DE SEÇÃO (container2)
-============================================= */
-.container2 {
+.caixa-boas-vindas p {
+  color: #c0c0da;
+  margin-bottom: 10px;
+}
+
+.caixa-boas-vindas span {
+  color: #ffe600;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+}
+
+.caixa-boas-vindas h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #4ade80;
+  margin-top: 10px;
+}
+
+/* 
+   TÍTULO DA SEÇÃO DE VIDEOGAMES
+   Faixa com o título "Meus Video-Games"
+   separando o conteúdo visualmente
+ */
+.titulo-secao-videogames {
+  max-width: 780px;
+  margin: 32px auto 20px;
+  padding: 12px 24px;
   text-align: center;
   border-top: 2px solid #2a2a5a;
   border-bottom: 2px solid #2a2a5a;
-  margin-top: 32px;
-  margin-bottom: 20px;
-  padding: 12px 24px;
 }
 
-.container2 h1 {
+.titulo-secao-videogames h1 {
   font-family: 'Press Start 2P', monospace;
   font-size: 36px;
   color: #ffe600;
 }
 
-.container2 h1::before { content: '► '; color: #ff6b6b; }
-.container2 h1::after  { content: ' ◄'; color: #ff6b6b; }
+/* Setas decorativas antes e depois do título */
+.titulo-secao-videogames h1::before { content: '► '; color: #ff6b6b; }
+.titulo-secao-videogames h1::after  { content: ' ◄'; color: #ff6b6b; }
 
-/* =============================================
-   SEÇÃO DOS VIDEOGAMES (PS2, PS3)
-============================================= */
-.videogames {
+/* 
+   SEÇÃO DOS CONSOLES (PS2, PS3)
+   Área que descreve cada console com imagem
+   flutuando ao lado do texto
+*/
+.secao-consoles {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-.videogames h2 {
+.secao-consoles h2 {
   font-family: 'Press Start 2P', monospace;
   font-size: 30px;
   color: #7ec8e3;
-  margin-bottom: 12px;
-}
-
-/* Card de console: imagem ao lado do texto */
-.videogames > h2 + img + p,
-.videogames > h2,
-.videogames > img {
-  display: block;
-}
-
-/* Wrapper gerado automaticamente para cada bloco console */
-.videogames h2 {
   margin-top: 20px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
-.videogames img {
+/* Imagem do console: flutua à esquerda do texto */
+.secao-consoles img {
   width: 200px;
   height: 130px;
   object-fit: cover;
@@ -206,29 +207,31 @@ main > .container::before {
   margin: 0 16px 12px 0;
 }
 
-.videogames p {
+.secao-consoles p {
   color: #a0a0c0;
   margin-bottom: 24px;
-  overflow: hidden; /* clearfix */
+  overflow: hidden; /* clearfix: empurra o parágrafo pra baixo da imagem */
 }
 
-/* Divisor entre consoles */
-.videogames br {
+/* Divisor entre os blocos de console */
+.secao-consoles br {
   display: block;
   clear: both;
   margin: 8px 0;
 }
 
-/* =============================================
-   SEÇÃO DOS JOGOS
-============================================= */
-.jogos {
+/* 
+   SEÇÃO DOS JOGOS FAVORITOS
+   Lista de jogos com imagem, texto e link
+ */
+.secao-jogos {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 24px 32px;
 }
 
-.jogos h1 {
+/* Título "Meus Jogos" com bordas decorativas */
+.secao-jogos h1 {
   font-family: 'Press Start 2P', monospace;
   font-size: 40px;
   color: #ffe600;
@@ -239,20 +242,11 @@ main > .container::before {
   margin-bottom: 8px;
 }
 
-.pesquisa h1 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 40px;
-  color: #ffe600;
-  text-align: center;
-  border-top: 2px solid #2a2a5a;
-  border-bottom: 2px solid #2a2a5a;
-  padding: 12px;
-  margin-bottom: 8px;}
+.secao-jogos h1::before { content: '► '; color: #ff6b6b; }
+.secao-jogos h1::after  { content: ' ◄'; color: #ff6b6b; }
 
-.jogos h1::before { content: '► '; color: #ff6b6b; }
-.jogos h1::after  { content: ' ◄'; color: #ff6b6b; }
-
-.jogos h3 {
+/* Subtítulo explicativo abaixo do título principal */
+.secao-jogos h3 {
   text-align: center;
   color: #666;
   font-size: 16px;
@@ -261,21 +255,22 @@ main > .container::before {
   font-weight: 400;
 }
 
-/* Cada jogo: imagem flutuada à esquerda */
-.jogos h2 {
+/* Nome de cada jogo (ex: "GTA V", "FIFA"...) */
+.secao-jogos h2 {
   font-family: 'Press Start 2P', monospace;
-  align-items: center;
   font-size: 35px;
   color: #ffe600;
   margin-top: 24px;
   margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 1px solid #1a1a4a;
-  clear: both;
+  clear: both;     /* garante que o título fique abaixo da imagem anterior */
   text-align: center;
+  align-items: center;
 }
 
-.jogos img {
+/* Imagem de cada jogo: flutua à esquerda do texto */
+.secao-jogos img {
   width: 200px;
   height: 130px;
   object-fit: cover;
@@ -284,42 +279,52 @@ main > .container::before {
   margin: 0 16px 12px 0;
 }
 
-.jogos p {
+/* Texto descritivo de cada jogo */
+.secao-jogos p {
   color: #9090b0;
   margin-bottom: 8px;
-  overflow: hidden; /* clearfix */
+  overflow: hidden; /* clearfix: faz o parágrafo respeitar a imagem flutuante */
 }
 
-/* Bloco de cada jogo com borda decorativa */
-.jogos > h2 {
-  position: relative;
+/* Link de gameplay de cada jogo */
+.secao-jogos a {
+  color: #9090b0;
+  margin-bottom: 8px;
+  overflow: hidden;
 }
 
-/* Linha separadora entre jogos */
-.jogos > p + h2 {
+/* Espaço extra antes do nome do próximo jogo */
+.secao-jogos > p + h2 {
   margin-top: 32px;
 }
 
-
-.quiz-aviso {
+/* 
+   AVISO DO QUIZ (texto piscante)
+   Mensagem animada pedindo ao usuário
+   para fazer login e acessar o quiz
+ */
+.aviso-quiz-piscante {
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   color: #ffe600;
   text-shadow: 2px 2px 0 #7a6a00;
   text-align: center;
   margin: 32px auto;
-  animation: piscar 1s step-start infinite;
+  animation: animacao-piscar 1s step-start infinite;
 }
 
-@keyframes piscar {
+/* Animação de piscar: alterna entre visível e invisível */
+@keyframes animacao-piscar {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 
-/* =============================================
-   SEÇÃO PESQUISA
-============================================= */
-.pesquisa {
+/* 
+   SEÇÃO DE ENQUETE / PESQUISA
+   Caixa onde o usuário vota no console e jogo
+   favorito e recebe um feedback
+ */
+.secao-enquete {
   max-width: 780px;
   margin: 32px auto;
   padding: 28px 24px;
@@ -327,7 +332,8 @@ main > .container::before {
   background: #080820;
 }
 
-.pesquisa h1 {
+/* Título da seção de enquete */
+.secao-enquete h1 {
   font-family: 'Press Start 2P', monospace;
   font-size: 28px;
   color: #ffe600;
@@ -338,7 +344,8 @@ main > .container::before {
   margin-bottom: 20px;
 }
 
-.pesquisa p {
+/* Texto das perguntas da enquete */
+.secao-enquete p {
   color: #7ec8e3;
   font-family: 'Press Start 2P', monospace;
   font-size: 9px;
@@ -346,7 +353,11 @@ main > .container::before {
   line-height: 1.8;
 }
 
-.opcoes {
+/* 
+   GRUPO DE OPÇÕES DA ENQUETE
+   Linha com os radio buttons e seus rótulos
+ */
+.grupo-opcoes-enquete {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -357,20 +368,23 @@ main > .container::before {
   line-height: 2;
 }
 
-.opcoes input[type="radio"] {
+/* Estilo dos radio buttons */
+.grupo-opcoes-enquete input[type="radio"] {
   accent-color: #ffe600;
   width: 18px;
   height: 18px;
   cursor: pointer;
 }
 
-.opcoes span {
+/* Rótulos ao lado dos radio buttons */
+.grupo-opcoes-enquete span {
   color: #d0d0e8;
   font-family: 'Rajdhani', sans-serif;
   font-size: 18px;
 }
 
-.pesquisa button {
+/* Botão "Ver Feedback" */
+.secao-enquete button {
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   background: #ffe600;
@@ -383,17 +397,15 @@ main > .container::before {
   transition: all 0.1s;
 }
 
-.pesquisa button:hover {
+.secao-enquete button:hover {
   background: #ffcc00;
   transform: scale(1.05);
 }
 
-
-/* =============================================
-   FOOTER
-============================================= */
-body > main::after,
-.footer-bar {
+/* 
+   RODAPÉ DO SITE
+   Faixa escura no final da página com copyright */
+.rodape-site {
   display: block;
   background: #040412;
   border-top: 2px solid #1a1a4a;
@@ -403,14 +415,13 @@ body > main::after,
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #3a3a6a;
-  content: '© MINHA TRAJETÓRIA COM GAMES · PLAYER 1';
 }
 
-/* =============================================
+/* 
    UTILITÁRIOS
-============================================= */
-/* Clearfix genérico */
-.clearfix::after {
+ */
+/* Clearfix: força o container a "abraçar" elementos flutuantes (float) */
+.limpador-float::after {
   content: '';
   display: table;
   clear: both;

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap');
 
+/* 
+   RESET & BASE
+   Zera margens, paddings e define box-sizing
+   para todos os elementos da página
+ */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -10,11 +15,14 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* empilha: cabeçalho → conteúdo → rodapé */
 }
 
-/* ── HEADER ── */
-.header {
+/* 
+   CABEÇALHO DO SITE
+   Faixa escura no topo com título e menu
+ */
+.cabecalho-site {
   background: #0d0d2b;
   border-bottom: 3px solid #1a1a4a;
   padding: 24px 24px 16px;
@@ -22,7 +30,8 @@ body {
   overflow: hidden;
 }
 
-.header::before {
+/* Efeito de scanlines (linhas de CRT sobre o cabeçalho) */
+.cabecalho-site::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -34,7 +43,12 @@ body {
   z-index: 1;
 }
 
-.container {
+/* 
+   CENTRALIZADOR DE CONTEÚDO
+   Limita a largura e centraliza o conteúdo.
+   Usado dentro do cabeçalho e do rodapé.
+ */
+.centralizador-conteudo {
   position: relative;
   z-index: 2;
   max-width: 780px;
@@ -43,7 +57,11 @@ body {
   text-align: center;
 }
 
-.titulo {
+/* 
+   TÍTULO PRINCIPAL
+   Texto grande com fonte pixelada no cabeçalho
+ */
+.titulo-principal {
   font-family: 'Press Start 2P', monospace;
   font-size: 13px;
   color: #ffe600;
@@ -52,7 +70,11 @@ body {
   margin-bottom: 18px;
 }
 
-.navbar {
+/* 
+   MENU DE NAVEGAÇÃO
+   Lista de links no topo do site
+ */
+.menu-navegacao {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -62,7 +84,7 @@ body {
   justify-content: center;
 }
 
-.navbar li a {
+.menu-navegacao li a {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
@@ -74,16 +96,21 @@ body {
   transition: all 0.1s;
 }
 
-.navbar li a:hover,
-.navbar li.agora a {
+/* Link ativo ou ao passar o mouse */
+.menu-navegacao li a:hover,
+.menu-navegacao li.pagina-atual a {
   background: #ffe600;
   color: #0a0a1a;
   border-color: #ffe600;
 }
 
-/* ── LOGIN AREA ── */
-.login {
-  flex: 1;
+/* 
+   ÁREA DE LOGIN
+   Ocupa o espaço restante da tela e centraliza
+   o card de login vertical e horizontalmente
+ */
+.area-login {
+  flex: 1; /* cresce para preencher o espaço entre header e footer */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +118,8 @@ body {
   padding: 40px 24px;
 }
 
-.login-titulo {
+/* Título acima do card (ex: "► ACESSO ◄") */
+.titulo-area-login {
   font-family: 'Press Start 2P', monospace;
   font-size: 11px;
   color: #7ec8e3;
@@ -100,10 +128,13 @@ body {
   letter-spacing: 2px;
 }
 
-.login-titulo::before { content: '► '; color: #ff6b6b; }
-.login-titulo::after  { content: ' ◄'; color: #ff6b6b; }
+.titulo-area-login::before { content: '► '; color: #ff6b6b; }
+.titulo-area-login::after  { content: ' ◄'; color: #ff6b6b; }
 
-/* Card */
+/* 
+   CARD DE LOGIN
+   Caixa com borda azul que contém o formulário
+ */
 .card-login {
   width: 100%;
   max-width: 600px;
@@ -113,6 +144,7 @@ body {
   padding: 48px 48px 40px;
 }
 
+/* Etiqueta "LOGIN" no canto superior do card */
 .card-login::before {
   content: 'LOGIN';
   font-family: 'Press Start 2P', monospace;
@@ -125,6 +157,7 @@ body {
   padding: 0 6px;
 }
 
+/* Título "Olá de volta!" dentro do card */
 .card-login h2 {
   font-family: 'Press Start 2P', monospace;
   font-size: 9px;
@@ -133,18 +166,36 @@ body {
   text-align: center;
 }
 
-/* Formulário */
-.formulario { display: flex; flex-direction: column; gap: 16px; }
+/* 
+   FORMULÁRIO
+   Empilha os campos verticalmente com espaço
+   entre eles
+ */
+.formulario-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-.campo { display: flex; flex-direction: column; gap: 6px; }
+/* 
+   CAMPO DO FORMULÁRIO
+   Cada campo tem um rótulo e um input
+ */
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-.campo span {
+/* Rótulo do campo (ex: "E-mail:", "Senha:") */
+.campo-formulario span {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #ffe600;
 }
 
-.campo input {
+/* Caixa de texto onde o usuário digita */
+.campo-formulario input {
   background: #0d0d35;
   border: 1.5px solid #2a2a6a;
   color: #d0d0e8;
@@ -155,11 +206,17 @@ body {
   transition: border-color 0.1s;
 }
 
-.campo input::placeholder { color: #3a3a6a; }
-.campo input:focus { border-color: #7ec8e3; }
+/* Texto de dica dentro do input (antes de digitar) */
+.campo-formulario input::placeholder { color: #3a3a6a; }
 
-/* Botão */
-.botao {
+/* Borda azul quando o input está selecionado */
+.campo-formulario input:focus { border-color: #7ec8e3; }
+
+/* 
+   BOTÃO DE ENTRAR
+   Botão amarelo que envia o formulário
+ */
+.botao-entrar {
   margin-top: 8px;
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
@@ -173,31 +230,39 @@ body {
   letter-spacing: 1px;
 }
 
-.botao:hover {
+.botao-entrar:hover {
   background: #ffed4a;
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* sobe levemente ao passar o mouse */
 }
 
-.botao:active { transform: translateY(0); }
+.botao-entrar:active { transform: translateY(0); } /* volta ao clicar */
 
-/* Loading */
-.loading-div {
-  display: none;
+/* 
+   LOADING (carregando...)
+   Aparece enquanto o login está sendo
+   processado; fica oculto por padrão
+ */
+.area-carregando {
+  display: none; /* o JavaScript mostra quando necessário */
   text-align: center;
   padding: 16px 0 0;
 }
 
-.loading-div img { width: 32px; height: 32px; }
+.area-carregando img { width: 32px; height: 32px; }
 
-/* Alerta de erro */
-.alerta_erro {
+/* 
+   ALERTA / MENSAGEM DE ERRO
+   Espaço reservado para exibir erros ao usuário
+ */
+.espaco-alerta-erro {
   width: 100%;
   max-width: 600px;
   margin-bottom: 12px;
 }
 
-.card_erro {
-  display: none;
+/* Caixa vermelha que aparece quando há um erro */
+.caixa-mensagem-erro {
+  display: none; /* fica escondida até o JavaScript ativá-la */
   background: #1a0a0a;
   border: 1.5px solid #ff6b6b;
   padding: 12px 16px;
@@ -207,7 +272,8 @@ body {
   position: relative;
 }
 
-.card_erro::before {
+/* Etiqueta "ERRO" no canto superior da caixa */
+.caixa-mensagem-erro::before {
   content: 'ERRO';
   position: absolute;
   top: -9px;
@@ -217,6 +283,7 @@ body {
   font-size: 6px;
 }
 
+/* Div de erros gerada pelo JavaScript */
 #div_erros_login {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
@@ -225,22 +292,26 @@ body {
   text-align: center;
 }
 
-/* ── FOOTER ── */
-.footer {
+/* 
+   RODAPÉ DO SITE
+   Faixa escura no final da página
+ */
+.rodape-site {
   background: #040412;
   border-top: 2px solid #1a1a4a;
   padding: 14px 24px;
   text-align: center;
 }
 
-.footer h4 {
+.rodape-site h4 {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #3a3a6a;
   font-weight: normal;
 }
 
-.footer .version {
+/* Número da versão do site */
+.rodape-site .versao-site {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
   color: #2a2a5a;

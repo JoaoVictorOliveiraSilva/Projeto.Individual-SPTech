@@ -2,6 +2,8 @@
 
 /* =============================================
    RESET & BASE
+   Zera margens, paddings e define box-sizing
+   para todos os elementos da página
 ============================================= */
 * {
   box-sizing: border-box;
@@ -17,10 +19,11 @@ body {
   line-height: 1.7;
 }
 
-/*
-   HEADER
-*/
-.header {
+/* =============================================
+   CABEÇALHO DO SITE
+   Faixa escura no topo com título e menu
+============================================= */
+.cabecalho-site {
   background: #0d0d2b;
   border-bottom: 3px solid #1a1a4a;
   padding: 24px 24px 16px;
@@ -28,7 +31,8 @@ body {
   overflow: hidden;
 }
 
-.header::before {
+/* Efeito de scanlines (linhas de CRT sobre o cabeçalho) */
+.cabecalho-site::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -43,7 +47,12 @@ body {
   z-index: 1;
 }
 
-.container {
+/* =============================================
+   CENTRALIZADOR DE CONTEÚDO
+   Limita a largura e centraliza o conteúdo.
+   Usado dentro do cabeçalho e do rodapé.
+============================================= */
+.centralizador-conteudo {
   position: relative;
   z-index: 2;
   max-width: 780px;
@@ -54,8 +63,9 @@ body {
 
 /* =============================================
    TÍTULO PRINCIPAL
+   Texto grande com fonte pixelada no cabeçalho
 ============================================= */
-.titulo {
+.titulo-principal {
   font-family: 'Press Start 2P', monospace;
   font-size: 13px;
   color: #ffe600;
@@ -65,9 +75,10 @@ body {
 }
 
 /* =============================================
-   NAVBAR
+   MENU DE NAVEGAÇÃO
+   Lista de links no topo do site (Home, Login...)
 ============================================= */
-.navbar {
+.menu-navegacao {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -77,7 +88,7 @@ body {
   justify-content: center;
 }
 
-.navbar li a {
+.menu-navegacao li a {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
@@ -89,48 +100,38 @@ body {
   transition: all 0.1s;
 }
 
-.navbar li a:hover,
-.navbar li.agora a {
+/* Link ativo ou ao passar o mouse */
+.menu-navegacao li a:hover,
+.menu-navegacao li.pagina-atual a {
   background: #ffe600;
   color: #0a0a1a;
   border-color: #ffe600;
 }
 
 /* =============================================
-   SEÇÃO DE CADASTRO
+   ÁREA PRINCIPAL DE CADASTRO
+   Envolve toda a parte central da página:
+   alerta de erro + card do formulário
 ============================================= */
-.login {
+.area-cadastro {
   max-width: 780px;
   margin: 32px auto 0;
   padding: 0 24px;
 }
 
-/* Título da seção ► CADASTRO ◄ */
-.login > .container2-titulo,
-.login-titulo {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 10px;
-  color: #ffe600;
-  text-align: center;
-  border-top: 2px solid #2a2a5a;
-  border-bottom: 2px solid #2a2a5a;
-  padding: 12px;
-  margin-bottom: 28px;
-}
-
-.login-titulo::before { content: '► '; color: #ff6b6b; }
-.login-titulo::after  { content: ' ◄'; color: #ff6b6b; }
-
 /* =============================================
    ALERTA / MENSAGEM DE ERRO
+   Espaço reservado para exibir erros ao usuário
+   (ex: senha incorreta, e-mail inválido)
 ============================================= */
-.alerta_erro {
+.espaco-alerta-erro {
   min-height: 28px;
   margin-bottom: 16px;
 }
 
-.card_erro {
-  display: none;
+/* Caixa vermelha que aparece quando há um erro */
+.caixa-mensagem-erro {
+  display: none; /* fica escondida até o JavaScript ativá-la */
   background: #1a0a0a;
   border: 1.5px solid #ff4444;
   padding: 8px 12px;
@@ -140,7 +141,8 @@ body {
   line-height: 1.8;
 }
 
-.card_erro.sucesso {
+/* Variação verde: usada quando a operação deu certo */
+.caixa-mensagem-erro.sucesso {
   border-color: #4ade80;
   color: #4ade80;
   background: #0a1a0a;
@@ -148,8 +150,10 @@ body {
 
 /* =============================================
    CARD DE CADASTRO
+   Caixa principal com borda azul que contém
+   o formulário de criação de conta
 ============================================= */
-.card {
+.card-formulario {
   border: 2px solid #1e3a8a;
   background: #080820;
   position: relative;
@@ -158,7 +162,8 @@ body {
   margin: 0 auto;
 }
 
-.card-cadastro::before {
+/* Etiqueta "NOVO JOGADOR" no canto superior do card */
+.card-formulario-cadastro::before {
   content: 'NOVO JOGADOR';
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
@@ -171,39 +176,46 @@ body {
   display: flex;
   align-items: center;
 }
-.card-cadastro h2{
-    
-font-family: 'Press Start 2P', monospace;
-font-size: 30px;
-color: yellow;
-display: flex;
-justify-content: center;
 
+/* Título "Bem-vindo!" dentro do card */
+.card-formulario-cadastro h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 30px;
+  color: yellow;
+  display: flex;
+  justify-content: center;
 }
-
 
 /* =============================================
    FORMULÁRIO
+   Empilha os campos verticalmente com espaço
+   entre eles
 ============================================= */
-.formulario {
+.formulario-campos {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.campo {
+/* =============================================
+   CAMPO DO FORMULÁRIO
+   Cada campo tem um rótulo (label) e um input
+============================================= */
+.campo-formulario {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.campo span {
+/* Rótulo do campo (ex: "Nome:", "E-mail:") */
+.campo-formulario span {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #7ec8e3;
 }
 
-.campo input {
+/* Caixa de texto onde o usuário digita */
+.campo-formulario input {
   width: 100%;
   background: #0d0d35;
   border: 1.5px solid #2a2a6a;
@@ -215,19 +227,22 @@ justify-content: center;
   transition: border-color 0.15s;
 }
 
-.campo input::placeholder {
+/* Texto de dica dentro do input (antes de digitar) */
+.campo-formulario input::placeholder {
   color: #3a3a6a;
 }
 
-.campo input:focus {
+/* Borda amarela quando o input está selecionado */
+.campo-formulario input:focus {
   border-color: #ffe600;
   background: #10103a;
 }
 
 /* =============================================
-   BOTÃO
+   BOTÃO DE ENVIAR
+   Botão amarelo que envia o formulário
 ============================================= */
-.botao {
+.botao-enviar {
   width: 100%;
   background: #ffe600;
   color: #0a0a1a;
@@ -241,42 +256,48 @@ justify-content: center;
   text-transform: uppercase;
 }
 
-.botao::before { content: '► '; }
-.botao::after  { content: ' ◄'; }
+/* Setas decorativas no botão */
+.botao-enviar::before { content: '► '; }
+.botao-enviar::after  { content: ' ◄'; }
 
-.botao:hover {
+.botao-enviar:hover {
   background: #fff176;
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* sobe levemente ao passar o mouse */
 }
 
-.botao:active {
-  transform: translateY(1px);
+.botao-enviar:active {
+  transform: translateY(1px); /* desce ao clicar, simulando pressão */
 }
 
 /* =============================================
-   LOADING
+   LOADING (carregando...)
+   Aparece enquanto o cadastro está sendo
+   processado; fica oculto por padrão
 ============================================= */
-.loading-div {
-  display: none;
+.area-carregando {
+  display: none; /* o JavaScript mostra quando necessário */
   text-align: center;
   padding: 12px;
 }
 
-.loading-div span {
+/* Texto piscante de "carregando" */
+.area-carregando span {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #4ade80;
-  animation: piscar 0.8s step-start infinite;
+  animation: animacao-piscar 0.8s step-start infinite;
 }
 
-@keyframes piscar {
+@keyframes animacao-piscar {
   50% { opacity: 0; }
 }
 
 /* =============================================
-   LINK LOGIN
+   LINK PARA LOGIN
+   Texto abaixo do card com link para a página
+   de login (para quem já tem conta)
 ============================================= */
-.link-login {
+.texto-link-login {
   text-align: center;
   margin-top: 18px;
   font-family: 'Press Start 2P', monospace;
@@ -284,19 +305,20 @@ justify-content: center;
   color: #3a3a6a;
 }
 
-.link-login a {
+.texto-link-login a {
   color: #7ec8e3;
   text-decoration: none;
 }
 
-.link-login a:hover {
+.texto-link-login a:hover {
   color: #ffe600;
 }
 
 /* =============================================
-   FOOTER
+   RODAPÉ DO SITE
+   Faixa escura no final da página com copyright
 ============================================= */
-.footer {
+.rodape-site {
   display: block;
   background: #040412;
   border-top: 2px solid #1a1a4a;
